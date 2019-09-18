@@ -11,23 +11,26 @@ import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertTrue;
 import static org.junit.Assert.assertThat;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
-import org.robolectric.Shadows;
-import org.robolectric.annotation.Config;
-import org.robolectric.shadow.api.Shadow;
-import org.robolectric.shadows.ShadowActivity;
+
 import org.robolectric.shadows.ShadowToast;
 
-import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
+
 import android.widget.ImageView;
 
 @RunWith(RobolectricTestRunner.class)
-
+//TC1(requirements):R1. Get Froyo ImageView button using id
+//                  R2. Check if the ImageView exists
+//                  R3. Click the Froyo Image to add it to Orders
+//                  R4. Get the Toast using ShadowToast
+//                  R5. Check if the Toast is not null
+//                  R6. Check if the toast text matches "You ordered a FroYo."
 public class MainActivityTest {
 
     private MainActivity activity;
@@ -40,16 +43,24 @@ public class MainActivityTest {
                 .get();
     }
 
-    @Test
-    public void activityIsNotNull() throws Exception {
-        assertNotNull(activity);
-    }
-    //TC1
+@Test
+    public void TestForFroyoOrdering(){
 
-    public void activityOrderedFroyo()
-    {
-        ImageView img =(ImageView) activity.findViewById(R.)
+        //R1. Get Froyo ImageView button using id
+        ImageView button = activity.findViewById(R.id.froyo);
+        //R2. Check if the ImageView exists
+        assertNotNull("Froyo Button cannot be found",button);
+        //R3. Click the Froyo Image to add it to Orders
+        button.performClick();
+        //R4. Get the Toast using ShadowToast
+        Toast toastForOrder = ShadowToast.getLatestToast();
+        //R5. Check if the Toast is not null
+        assertNotNull("Toast is not null",toastForOrder);
+        //R6. Check if the toast text matches "You ordered a FroYo."
+        Assert.assertEquals("You ordered a FroYo.", ShadowToast.getTextOfLatestToast());
+
     }
+
 
 
 
