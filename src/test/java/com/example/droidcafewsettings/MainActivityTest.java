@@ -161,7 +161,7 @@ public class MainActivityTest {
         assertEquals("Satwinder Bhullar", name);
         assertEquals("Toronto", address);
         assertEquals("567898698", phone);
-        assertEquals("Express delivery", note);
+        assertEquals("Express delivery",note);
 
     }
 }
