@@ -112,7 +112,7 @@ public class MainActivityTest {
         FloatingActionButton crtbtn = activity.findViewById(R.id.fab);
         crtbtn.performClick();
         Intent intent = Shadows.shadowOf(activity).peekNextStartedActivity();
-        assertEquals(OrderActivity.class.getCanonicalName(), intent.getComponent().getClassName());
+        assertEquals(OrderActivity.class.getCanonicalName(), intent.getComponent().CartRememberInfoTest());
 
 
         EditText edttxt = (EditText) view.findViewById(R.id.name_text);
@@ -156,12 +156,12 @@ public class MainActivityTest {
         activity.finish();
 
         Intent mainActivityIntent = Shadows.shadowOf(activity).getNextStartedActivity();
-        assertEquals(MainActivity.class.getCanonicalName(), mainActivityIntent.getComponent().getClassName());
+        assertEquals(MainActivity.class.getCanonicalName(), mainActivityIntent.getComponent().CartRememberInfoTest());
 
         crtbtn.performClick();
 
         Intent orderActivityIntent = Shadows.shadowOf(activity).peekNextStartedActivity();
-        assertEquals(OrderActivity.class.getCanonicalName(), orderActivityIntent.getComponent().getClassName());
+        assertEquals(OrderActivity.class.getCanonicalName(), orderActivityIntent.getComponent().CartRememberInfoTest());
 
         String name = edttxt.getText().toString();
         String address = edtaddress.getText().toString();
