@@ -7,32 +7,22 @@ package com.example.droidcafewsettings;
 import android.app.Dialog;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.widget.AppCompatImageView;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
-
-import static org.hamcrest.CoreMatchers.equalTo;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
-import static junit.framework.Assert.assertTrue;
-import static org.junit.Assert.assertThat;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
-
 import org.robolectric.Shadows;
 import org.robolectric.shadows.ShadowToast;
-
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
-
 import android.widget.ImageView;
 
 @RunWith(RobolectricTestRunner.class)
@@ -112,7 +102,7 @@ public class MainActivityTest {
         FloatingActionButton crtbtn = activity.findViewById(R.id.fab);
         crtbtn.performClick();
         Intent intent = Shadows.shadowOf(activity).peekNextStartedActivity();
-        assertEquals(OrderActivity.class.getCanonicalName(), intent.getComponent().CartRememberInfoTest());
+        assertEquals(OrderActivity.class.getCanonicalName(), intent.getComponent().getClassName());
 
 
         EditText edttxt = (EditText) view.findViewById(R.id.name_text);
@@ -156,12 +146,12 @@ public class MainActivityTest {
         activity.finish();
 
         Intent mainActivityIntent = Shadows.shadowOf(activity).getNextStartedActivity();
-        assertEquals(MainActivity.class.getCanonicalName(), mainActivityIntent.getComponent().CartRememberInfoTest());
+        assertEquals(MainActivity.class.getCanonicalName(), mainActivityIntent.getComponent().getClassName());
 
         crtbtn.performClick();
 
         Intent orderActivityIntent = Shadows.shadowOf(activity).peekNextStartedActivity();
-        assertEquals(OrderActivity.class.getCanonicalName(), orderActivityIntent.getComponent().CartRememberInfoTest());
+        assertEquals(OrderActivity.class.getCanonicalName(), orderActivityIntent.getComponent().getClassName());
 
         String name = edttxt.getText().toString();
         String address = edtaddress.getText().toString();
