@@ -52,7 +52,7 @@ public class MainActivityTest {
 
     private MainActivity activity;
     private View view;
-     private Dialog dialog;
+    private Dialog dialog;
 
 
     @Before
@@ -65,8 +65,8 @@ public class MainActivityTest {
     }
 
     //TC1
-@Test
-    public void TestForFroyoOrdering(){
+    @Test
+    public void TestForFroyoOrdering() {
 
         //R1. Get Froyo ImageView button using id
 
@@ -74,7 +74,7 @@ public class MainActivityTest {
 
         //R2. Check if the ImageView exists
 
-        assertNotNull("Froyo Button cannot be found",button);
+        assertNotNull("Froyo Button cannot be found", button);
 
         //R3. Click the Froyo Image to add it to Orders
 
@@ -86,7 +86,7 @@ public class MainActivityTest {
 
         //R5. Check if the Toast is not null
 
-        assertNotNull("Toast is not null",toastForOrder);
+        assertNotNull("Toast is not null", toastForOrder);
 
         //R6. Check if the toast text matches "You ordered a FroYo."
 
@@ -136,7 +136,7 @@ public class MainActivityTest {
             @Override
             public void onClick(View v) {
 
-                assertNotNull("Button is null",b);
+                assertNotNull("Button is null", b);
                 b.performClick();
 
             }
@@ -156,11 +156,13 @@ public class MainActivityTest {
         String name = edttxt.getText().toString();
         String address = edtaddress.getText().toString();
         String phone = edtphn.getText().toString();
+        String note = edtmsg.getText().toString();
 
-
-        assertEquals("Satwinder Bhullar",name);
+        assertEquals("Satwinder Bhullar", name);
         assertEquals("Toronto", address);
         assertEquals("567898698", phone);
+        assertEquals("Express delivery", note);
 
     }
 }
+
